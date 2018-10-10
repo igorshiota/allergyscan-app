@@ -1,14 +1,57 @@
 <ion-header>
   <ion-navbar>
-    <ion-title>
-      Ionic Blank
-    </ion-title>
+  	<ion-buttons start>
+	  	<button ion-button menuToggle>
+	  		<ion-icon name="menu"></ion-icon>
+	  	</button>
+  	</ion-buttons>
+    <ion-title>Add Items</ion-title>
   </ion-navbar>
 </ion-header>
 
 <ion-content padding>
-  The world is your oyster.
-  <p>
-    If you get lost, the <a href="http://ionicframework.com/docs/v2">docs</a> will be your guide.
-  </p>
+	<ion-row>
+		<ion-col text-center>
+			<form #f="ngForm" (ngSubmit)="onAddItem(f)">
+				<ion-label for="item">Type an item/ingredient name</ion-label>
+				<ion-input type="text" name="itemName" placeholder="e.g Milk" ngModel required></ion-input><br>
+				<button ion-button small type="submit" [disabled]="!f.valid">Add Item</button>
+				<button ion-button small color="danger" (click)="onEmptyList()">Empty List</button>
+			</form>
+		</ion-col>
+	</ion-row>	
+	<ion-row>
+		<ion-col>
+			<ion-list>
+				<ion-item-sliding *ngFor="let singleItem of itemList">
+					<ion-item>
+						<p>{{singleItem.name}}</p>
+					</ion-item>
+					<ion-item-options>
+						<button ion-button color='danger' (click)="onRemoveItem(item)"><ion-icon name='trash'></ion-icon>
+						Delete
+						</button>
+					</ion-item-options>
+				</ion-item-sliding>
+			</ion-list>
+		</ion-col>	
+	</ion-row>
+	<ion-row>
+		<ion-col text-center>
+			<button ion-button medium block icon-left type="button" *ngIf="!imageUrl" (click)="onShowActionSheet()"><ion-icon name="camera"></ion-icon>Scan</button>
+		</ion-col>	
+	</ion-row>
+	<ion-row>
+		<ion-col text-center *ngIf="imageUrl">
+			<img id="image" [src]="imageUrl">
+			<button ion-button icon-left block (click)="onAnalyzeImage()">
+		      <ion-icon name="search"></ion-icon>
+		      Read
+		    </button>
+		    <button ion-button icon-left block (click)="onRestart()">
+		      <ion-icon name="refresh"></ion-icon>
+		      Restart
+		    </button>
+		</ion-col>
+	</ion-row>    
 </ion-content>

@@ -1,0 +1,40 @@
+<!--
+  Generated template for the HowToPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+  <ion-navbar>
+  	<ion-buttons start>
+	  	<button ion-button menuToggle>
+	  		<ion-icon name="menu"></ion-icon>
+	  	</button>
+  	</ion-buttons>
+    <ion-title>How To Use?</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding>
+	<ion-grid>
+		<ion-row>
+			<ion-col>				
+				<h4>1. Add an Item </h4>
+				<p>Add an item or ingredient to the list you would like the scan to detect from the picture you take.</p>
+				<h4>2. Scan! </h4>
+				<p>Hit the 'Scan' button after you add the items/ingredients to the list. Take a picture of the ingredients list from the product's label/package, and the scan result will tell you whether or not the items/ingredients you added to the list are present in the product, according to the product's ingredients.</p>
+				<h4 style="text-align:center;">Important</h4>
+				<p>Make sure to take the clearest picture as possible. Any blurry or 'shaky' photos/images might not be
+				read properly by the app.</p>
+			</ion-col>
+		</ion-row>
+		<ion-row>
+			<ion-col text-center>
+				<button ion-button medium (click)="onGoToDisclaimer(page)">Read our Disclaimer</button>
+			</ion-col>
+		</ion-row>
+	</ion-grid>
+</ion-content>
