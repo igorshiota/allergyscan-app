@@ -77,7 +77,7 @@ export class HomePage implements OnInit {
         },{
           text: 'Demo Photo',
           handler: () => {
-            this.imageUrl = 'assets/imgs/demo.png';
+            this.imageUrl = 'assets/imgs/demo2.jpg';
           }
         },{
           text: 'Cancel',
@@ -98,7 +98,7 @@ export class HomePage implements OnInit {
       sourceType,
       allowEdit: true,
       saveToPhotoAlbum: false,
-      correctOrientation: true
+      correctOrientation: false
     }).then((imageData) => {
       this.imageUrl = `data:image/jpeg;base64,${imageData}`;
     }, (err) => {
